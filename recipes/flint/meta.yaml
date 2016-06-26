@@ -1,0 +1,50 @@
+{% set version = "2.5.3.dev0" %}
+{% set commit = "ca3d829ae82bcd18d4209463d19eb2cdbc88c583" %}
+
+package:
+  name: flint
+  version: {{ version }}
+
+source:
+  fn: {{ commit }}.tar.gz
+  url: https://github.com/isuruf/flint2/archive/{{ commit }}.tar.gz
+  md5: 286c41b26c4c17ab9440e9fbf406e424
+
+build:
+  number: 1
+  skip: true          # [win and not py35]
+  features:
+    - vc14            # [win and py35]
+
+requirements:
+  build:
+    - python          # [win]
+    - pthreads-win32  # [win]
+    - mpfr
+  run:
+    - pthreads-win32  # [win]
+    - mpfr
+
+test:
+  requires:
+    - python
+  commands:
+    - if not exist %LIBRARY_INC%\\flint\\flint.h exit 1        # [win]
+    - if not exist %LIBRARY_LIB%\\flint.lib exit 1             # [win]
+    - if not exist %LIBRARY_BIN%\\dll_flint.dll exit 1             # [win]
+    - if not exist %LIBRARY_LIB%\\flint_static.lib exit 1      # [win]
+
+    - test -f $PREFIX/include/flint/flint.h                    # [unix]
+    - test -f $PREFIX/lib/libflint.a                           # [unix]
+    - test -f $PREFIX/lib/libflint.so                          # [linux]
+    - test -f $PREFIX/lib/libflint.dylib                       # [osx]
+
+about:
+  home: http://flintlib.org/
+  license: LGPL 2
+  summary: Fast Library for Number Theory.
+
+extra:
+  recipe-maintainers:
+    - isuruf
+
