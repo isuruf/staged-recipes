@@ -1,0 +1,47 @@
+{% set version = "0.6" %}
+
+package:
+  name: pyranha
+  version: {{ version }}
+
+source:
+  fn: v{{ version }}.tar.gz
+  url: https://github.com/bluescarni/piranha/archive/v{{ version }}.tar.gz
+  sha256: b099087c8ef51434abf2a2aaa717a3fc80b106699ce29b4268e546a130492d95
+
+build:
+  number: 0
+  skip: true        # [win]
+
+requirements:
+  build:
+    - toolchain
+    - cmake
+    - gmp
+    - mpfr
+    - boost
+    - python
+    - piranha
+  run:
+    - gmp
+    - mpfr
+    - boost
+    - python
+
+test:
+  requires:
+    - mpmath
+  imports:
+    - pyranha
+  commands:
+    - python -c "import pyranha.test; pyranha.test.run_test_suite()";
+
+about:
+  home: https://github.com/bluescarni/piranha
+  license: GPL v3 and LGPL v3
+  license_file: COPYING.lgpl3
+  summary: 'The Piranha computer algebra system.'
+
+extra:
+  recipe-maintainers:
+    - isuruf
