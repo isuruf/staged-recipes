@@ -14,6 +14,5 @@ cmake \
     ..
 
 make
-ctest -E "gastineau"
 make install
 

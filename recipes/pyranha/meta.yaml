@@ -21,7 +21,7 @@ requirements:
     - mpfr
     - boost
     - python
-    - piranha
+    - piranha   {{ version }}
   run:
     - gmp
     - mpfr
