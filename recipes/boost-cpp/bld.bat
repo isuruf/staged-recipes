@@ -11,7 +11,10 @@ if errorlevel 1 exit 1
     variant=release ^
     threading=multi ^
     link=static,shared ^
-    --without-python
+    --without-python ^
+    -s NO_BZIP2=0 ^
+    -s BZIP2_INCLUDE=%LIBRARY_INC% ^
+    -s BZIP2_LIBPATH=%LIBRARY_LIB%
 if errorlevel 1 exit 1
 
 :: Get the major minor version info (e.g. `1_61`)
