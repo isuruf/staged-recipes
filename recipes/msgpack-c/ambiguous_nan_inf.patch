@@ -8,20 +8,20 @@ index f6ba171..92be60d 100644
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
 -        if (isnan(val)) {
 -            EXPECT_TRUE(isnan(obj.via.f64));
-+        if (std::isnan(val)) {
-+            EXPECT_TRUE(std::isnan(obj.via.f64));
++        if (::isnan(val)) {
++            EXPECT_TRUE(::isnan(obj.via.f64));
  #if defined(MSGPACK_USE_LEGACY_NAME_AS_FLOAT)
 -            EXPECT_TRUE(isnan(obj.via.dec));
-+            EXPECT_TRUE(std::isnan(obj.via.dec));
++            EXPECT_TRUE(::isnan(obj.via.dec));
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
          }
 -        else if (isinf(val)) {
 -            EXPECT_TRUE(isinf(obj.via.f64));
-+        else if (std::isinf(val)) {
-+            EXPECT_TRUE(std::isinf(obj.via.f64));
++        else if (::isinf(val)) {
++            EXPECT_TRUE(::isinf(obj.via.f64));
  #if defined(MSGPACK_USE_LEGACY_NAME_AS_FLOAT)
 -            EXPECT_TRUE(isinf(obj.via.dec));
-+            EXPECT_TRUE(std::isinf(obj.via.dec));
++            EXPECT_TRUE(::isinf(obj.via.dec));
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
          }
          else {
@@ -31,20 +31,20 @@ index f6ba171..92be60d 100644
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
 -        if (isnan(val)) {
 -            EXPECT_TRUE(isnan(obj.via.f64));
-+        if (std::isnan(val)) {
-+            EXPECT_TRUE(std::isnan(obj.via.f64));
++        if (::isnan(val)) {
++            EXPECT_TRUE(::isnan(obj.via.f64));
  #if defined(MSGPACK_USE_LEGACY_NAME_AS_FLOAT)
 -            EXPECT_TRUE(isnan(obj.via.dec));
-+            EXPECT_TRUE(std::isnan(obj.via.dec));
++            EXPECT_TRUE(::isnan(obj.via.dec));
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
          }
 -        else if (isinf(val)) {
 -            EXPECT_TRUE(isinf(obj.via.f64));
-+        else if (std::isinf(val)) {
-+            EXPECT_TRUE(std::isinf(obj.via.f64));
++        else if (::isinf(val)) {
++            EXPECT_TRUE(::isinf(obj.via.f64));
  #if defined(MSGPACK_USE_LEGACY_NAME_AS_FLOAT)
 -            EXPECT_TRUE(isinf(obj.via.dec));
-+            EXPECT_TRUE(std::isinf(obj.via.dec));
++            EXPECT_TRUE(::isinf(obj.via.dec));
  #endif // MSGPACK_USE_LEGACY_NAME_AS_FLOAT
          }
          else {
