@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://bitbucket.org/malb/m4rie/downloads/{{ name }}-{{ version }}.tar.gz
-  sha256: 4bc3f53a5116e1ff0720c08f34ce415c88e2fb503437abfd15e196792ec6d5aa
+  sha256: a0c3f46c399ed2e4af5aaad9de9db0962d15d5ccb9bd0e313df6b2c16bf8e0b1
 
 build:
   number: 0
