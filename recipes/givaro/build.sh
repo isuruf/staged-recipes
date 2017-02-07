@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CPPFLAGS="-I$PREFIX/include $CPPFLAGS"
-export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
+export LDFLAGS="-L$PREFIX/lib -Wl,-rpath=$PREFIX/lib $LDFLAGS"
 export CFLAGS="-fPIC -O2 $CFLAGS"
 export CXXFLAGS="-fPIC -O2 $CXXFLAGS"
 
