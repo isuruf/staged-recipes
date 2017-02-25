@@ -7,8 +7,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/fplll/fpylll/archive/{{ version }}.tar.gz
-  sha256: 968bd40857cf7952bfa0172184094cd640fad3f587437f685155c71c4031bfb0
+  url: https://github.com/fplll/fpylll/archive/f8539b4640790e6e6b0d66456b83fd7d85cfb792.tar.gz
+  sha256: e7d6bd7e94942a79bba577d50d37751823f871e08d2e7b249625b586d3747418
 
 build:
   number: 0
