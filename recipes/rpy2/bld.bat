@@ -27,7 +27,8 @@ if "%CONDA_PY%" == "36" (
 gendef %PREFIX%\python%CONDA_PY%.dll - > python%CONDA_PY%.def
 dlltool -d python%CONDA_PY%.def -l %PREFIX%\lib\libpython%CONDA_PY%.dll.a
 
-CFLAGS="-I%LIBRARY_PREFIX%/include ${CFLAGS}" "%PYTHON%" setup.py install
+set CPATH=%PREFIX%/R/include
+"%PYTHON%" setup.py install
 if errorlevel 1 exit 1
 
 :: Cleanup the libs we made:
