@@ -19,14 +19,14 @@ requirements:
     - eigen
     - nlopt
     - boost     1.63.*
-    - numpy     x.x
+    - numpy
     - dill
     - ipyparallel
     - python
   run:
     - nlopt
     - boost     1.63.*
-    - numpy     x.x
+    - numpy
     - dill
     - ipyparallel
     - python
