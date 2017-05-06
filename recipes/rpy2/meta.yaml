@@ -20,7 +20,7 @@ build:
 requirements:
   build:
     - posix                  # [win]
-    - {{ native }}toolchain  # [win]
+    - {{ native }}toolchain
     - gcc                    # [not win]
     - readline               # [not win]
     - python
