@@ -20,24 +20,27 @@ build:
 
 requirements:
   build:
-    - posix  # [win]
-    - gcc  # [not win]
+    - posix                  # [win]
     - {{ native }}toolchain  # [win]
-    - readline  # [not win]
+    - gcc                    # [not win]
+    - readline               # [not win]
     - python
     - setuptools
     - six
     - r-base
   run:
-    - {{ native }}gcc-libs  # [win]
-    - libgcc  # [win]
-    - readline  # [not win]
+    - libgcc                 # [not win]
+    - readline               # [not win]
     - python
     - six
     - r-base
-    - singledispatch  # [not (py34 or py35)]
+    - singledispatch         # [py<34]
 
 test:
+  requires:
+    - ipython
+    - numpy
+    - pandas
   imports:
     - rpy2
     - rpy2.interactive
@@ -52,10 +55,6 @@ test:
     - rpy2.robjects.lib
     - rpy2.robjects.lib.tests
     - rpy2.robjects.tests
-  requires:
-    - ipython
-    - numpy
-    - pandas
 
 about:
   home: http://rpy2.bitbucket.org
