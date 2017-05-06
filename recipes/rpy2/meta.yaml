@@ -1,7 +1,6 @@
 {% set name = "rpy2" %}
 {% set version = "2.8.5" %}
-{% set version_ = "2_8_5" %}
-{% set sha1 = "517487daef8556c08db86f0f919fd4558c39f137" %}
+{% set sha256 = "09c63bc934d666f4ec16e74caf52eb516e035557407a93591e8da694a1718ca6" %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
@@ -9,9 +8,9 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.bz2
-  url: https://bitbucket.org/rpy2/rpy2/get/RELEASE_{{ version_ }}.tar.bz2
-  sha1: {{ sha1 }}
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -60,7 +59,7 @@ about:
   home: http://rpy2.bitbucket.org
   license: GPL-2.0
   license_family: GPL2
-  license_file: gpl-2.0.txt
+  # license_file gpl-2.0.txt
   summary: 'Python interface to the R language (embedded R)'
   description: |
     rpy2 is an interface to R running embedded in a Python process.
