@@ -14,8 +14,8 @@ source:
 
 build:
   number: 0
-  # conda-forge r-base skips win32
-  skip: true  # [win32]
+  # windows doesn't compile
+  skip: true  # [win]
 
 requirements:
   build:
