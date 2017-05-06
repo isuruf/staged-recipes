@@ -5,8 +5,6 @@
 echo [build]              > setup.cfg
 echo compiler = mingw32  >> setup.cfg
 set CFLAGS=-D__USE_MINGW_ANSI_STDIO
-gendef %PREFIX%\python%CONDA_PY%.dll - > python%CONDA_PY%.def
-dlltool -d python%CONDA_PY%.def -l %CONDA_DEFAULT_ENV%\libs\libpython%CONDA_PY%.dll.a
 
 :: Create an empty library for msvcrt??? since CygwinCCompiler seems to
 :: think that linking to that is a good idea (it is not).
@@ -27,8 +25,9 @@ if "%CONDA_PY%" == "36" (
 gendef %PREFIX%\python%CONDA_PY%.dll - > python%CONDA_PY%.def
 dlltool -d python%CONDA_PY%.def -l %PREFIX%\lib\libpython%CONDA_PY%.dll.a
 
-"%PYTHON%" setup.py install
-if errorlevel 1 exit 1
+copy "%RECIPE_DIR%\build.sh" .
+set PREFIX=%PREFIX:\=/%
+bash -lc "./build.sh"
 
 :: Cleanup the libs we made:
 del %CONDA_DEFAULT_ENV%\libs\libpython%CONDA_PY%.dll.a
