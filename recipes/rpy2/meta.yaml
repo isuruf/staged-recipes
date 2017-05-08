@@ -22,14 +22,14 @@ requirements:
     - posix                  # [win]
     - {{ native }}toolchain  # [win]
     - gcc                    # [not win]
-    - readline               # [not win]
+    - readline 6.2*          # [not win]
     - python
     - setuptools
     - six
     - r-base
   run:
     - libgcc                 # [not win]
-    - readline               # [not win]
+    - readline 6.2*          # [not win]
     - python
     - six
     - r-base
