@@ -1,3 +1,2 @@
 mkdir %PREFIX%\opt\oommf
-xcopy * %PREFIX%\opt\oommf\ \E
-dir %PREFIX%\opt\oommf
+xcopy \E ".\*" %PREFIX%\opt\oommf\
