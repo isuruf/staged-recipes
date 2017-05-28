@@ -3,4 +3,5 @@ dir %PREFIX%
 dir %PREFIX%\opt
 
 mkdir %PREFIX%\opt\oommf
-move * %PREFIX%\opt\oommf
+xcopy . %PREFIX%\opt\oommf \E
+dir %PREFIX%\opt\oommf
