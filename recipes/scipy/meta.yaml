@@ -20,7 +20,7 @@ build:
   features:
     - blas_{{ variant }}
   script:
-    - export CONDA_FORGE_DEBUG=on
+    - unset LDFLAGS
     - export OPENBLAS_NUM_THREADS=1
     - python setup.py install --single-version-externally-managed --record=record.txt
 
