@@ -14,11 +14,11 @@ source:
 
 build:
   number: 0
-  skip: True  # [win or osx]
+  skip: True  # [win]
 
 requirements:
   build:
-    - toolchain
+    - toolchain3
     - make
     - cmake
     - openssl
