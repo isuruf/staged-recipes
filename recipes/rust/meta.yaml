@@ -16,14 +16,15 @@ build:
 requirements:
   build:
     - llvmdev 3.9.*
-    - toolchain
+    - toolchain3
     - python 2.7*
     - cmake
+    - curl
+    - jemalloc
 
 test:
   commands:
     - rustc --help
-    - cargo --help
 
 about:
   home: https://www.rust-lang.org
