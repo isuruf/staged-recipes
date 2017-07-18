@@ -17,6 +17,7 @@ requirements:
   build:
     - perl 5.22.2.1
     - expat
+    - toolchain3
   run:
     - perl 5.22.2.1
     - expat
