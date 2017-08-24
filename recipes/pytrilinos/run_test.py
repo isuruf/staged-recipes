@@ -1,8 +1,3 @@
-import os
-import sys
-if sys.platform != 'darwin':
-    os.environ["OMPI_MCA_pml"]="isolated"
-
 import PyTrilinos.Teuchos
 import PyTrilinos.Epetra
 import PyTrilinos.TriUtils
