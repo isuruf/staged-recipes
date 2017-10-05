@@ -1,5 +1,5 @@
 {% set name = "ghc" %}
-{% set version = "6.8.3" %}
+{% set version = "8.2.1" %}
 {% set sha256 = "07d06efa9222638c80b72ceda957d3c7bcbdc2665a9738dd6ef6c0751a05e8ed" %}
 
 package:
@@ -7,9 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}-x86_64-unknown-linux.tar.bz2  # [linux and x86_64]
-  url: https://www.haskell.org/{{ name }}/dist/{{ version }}/{{ name }}-{{ version }}-x86_64-unknown-linux.tar.bz2  # [linux and x86_64]
-  sha256: {{ sha256 }}
+  url: https://downloads.haskell.org/~ghc/{{ version }}/ghc-{{ version }}-src.tar.xz
 
 build:
   number: 0
@@ -18,14 +16,18 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - toolchain3
     - pkg-config
     - perl
     - readline
     - gmp
+    - ncurses
+    - m4
+    - curl
   run:
     - readline
     - gmp
+    - ncurses
 
 test:
   commands:
