@@ -18,7 +18,7 @@ requirements:
   build:
     - toolchain3
     - pkg-config
-    - perl
+    - perl          5.22.0.1
     - readline
     - gmp
     - ncurses
