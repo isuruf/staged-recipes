@@ -3,11 +3,11 @@ language: generic
 
 jobs:
   include:
-    - if: (fork IS (true)) OR (type IN (pull_request))
+    - if: (repo != isuruf/staged-recipes) OR (type IN (pull_request))
       os: osx
       osx_image: xcode6.4
 
-    - if: (fork IS (false)) AND (NOT (type IN (pull_request)))
+    - if: (repo = isuruf/staged-recipes) AND (type IN (pull_request))
       os: linux
       sudo: false
 
@@ -15,6 +15,7 @@ sudo: false
 
 env:
     global:
+
         # Add the BINSTAR_TOKEN environment variable. This has been generated with "" then "travis encrypt BINSTAR_TOKEN=<token_id>"
         - secure: "Z4k78LYglt90NV2lRN5kG3CBgCDqEMO/3i0l8NZWDWXNeXICdLx0FmXK3HBUwtJWSVIhgyX2LLsYBEOKQqyZYA/K9wtBdQp3gqo9CWxZwy3kP1yLSUeOzkcxebNY8oRjpclxgtp10VbgLpX6TxOucagI8K+hqEPIFUNsUEetF/ORhg73X7rjP3aBtrVmtzrmLPhwAOAOThG8kAbBHe/MPWXw8vBi9wxxS70upNACE0AwcPP1Mwec+3P7z5EmETlg+8TKi9qbwHwK3vxm42WiRrLQorHCwT7ejL5pgf2KagkgwqRJjE+EZO3cN+a14kd5QN0OPS6eoA79WWte449OFElN3op69n3R8wrwIlnW/QH83va0ArvlgI7bQ4+IRIzCLAKf2f3cQEaLUURYprxQFR7pnHNXvrxnXEVmhqGed2zdyZt6/oIEjobw95LOkcXdrWjdfjfsfeXEPDKA2VBx1ilbt9GJ4NjoY89Rl0luUuVyAMlqFA4Y9U99ObiCUHAO8nqnU6s9vOIskDBEAJNNkz82Wg81aJhwhKYBt+JDQTcfdOfoGpGfvwRr8a7eHi7owYt8r5g7zghK4xQkQa2blnoThDcUj7R91kfm2PiHUg3Q1c6BUvswQZxU4garc0Q90eXCuuP6dQicra0fcZNogFvbyh6pAUR7fd31YoEOv0k="
 
