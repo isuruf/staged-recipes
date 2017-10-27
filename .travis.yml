@@ -7,7 +7,7 @@ jobs:
       os: osx
       osx_image: xcode6.4
 
-    - if: repo IS conda-forge/staged-recipes
+    - if: repo = conda-forge/staged-recipes
       os: linux
       sudo: false
 
