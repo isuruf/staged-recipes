@@ -3,7 +3,7 @@ language: generic
 
 jobs:
   include:
-    - if: (repo NOT conda-forge/staged-recipes) OR (type IN (pull_request))
+    - if: (NOT (repo IS conda-forge/staged-recipes)) OR (type IN (pull_request))
       os: osx
       osx_image: xcode6.4
 
