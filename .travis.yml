@@ -3,11 +3,11 @@ language: generic
 
 jobs:
   include:
-    - if: (fork IS (true)) OR (type IN (pull_request))
+    - if: (env(GH_TOKEN) IS blank) OR (type IN (pull_request))
       os: osx
       osx_image: xcode6.4
 
-    - if: env(GH_TOKEN) IS present AND (NOT (type IN (pull_request)))
+    - if: (env(GH_TOKEN) IS present) AND (NOT (type IN (pull_request)))
       os: linux
       sudo: false
 
@@ -15,6 +15,7 @@ sudo: false
 
 env:
     global:
+         - secure: "dduGV4EahEFEfOox89bC/mjVxHYAvSNPJo3+96OBu9YFy2l4fnU+A/bwZ5d6CakKhCnTQFPbLyxXdcwKfacOsc9ls7DdXXIKu8P62HVeHqg1nwPXxQAyEyHmtw8KmeVXJAP6IheVBlGKVwQOitDO/KPyJKWryA7L+uqr2KRXntK7HD7XzWaRqIu9izdTDobWPmCz/ro5AneMd6LD5JTCWcw6ZLRcTz1A7RxD9CtB2TyA/1m8IOGK494AuEEpPoFPh20H8bAnWwY2EkMLaX1Vd4gtSa0iKJrdNnvrGTp1Kd+FbklE5G44y7aHZMSGnpibfT/1HXWH/68fHdi4Wq21MCMojvmL2koxysCWh0A3MXTUClS0cmyvFOX8OK0YeWrBnxX5y1BDSbAguQIjZ7IoNZk30dQ9PiHHNb+z/h4DL3puDxr5gS+BDZOzqQ8guFe4vdN7tylh7mHKaVE6ZKH6FY8LnpjxuRkD0KTt6XRbJ3BWw3jWDatmvjpiXoGEkXDcdOswtxV2xYpNNVg2MW3wrM4TA6WEO76RXcqCoSce8U5fSif/b4pj/d0eYbsTKjvkNfWYAblk0a1bOWOJQvZ9Ksjs+mjELoKfNUPygcwBNMr/MP6fyLNrSwzI/l7pgNmb0emy2XgN4vEAWrBMlOFg0gyJ4HT5te7Q9C9dq05hTDY="
         # Add the BINSTAR_TOKEN environment variable. This has been generated with "" then "travis encrypt BINSTAR_TOKEN=<token_id>"
         - secure: "Z4k78LYglt90NV2lRN5kG3CBgCDqEMO/3i0l8NZWDWXNeXICdLx0FmXK3HBUwtJWSVIhgyX2LLsYBEOKQqyZYA/K9wtBdQp3gqo9CWxZwy3kP1yLSUeOzkcxebNY8oRjpclxgtp10VbgLpX6TxOucagI8K+hqEPIFUNsUEetF/ORhg73X7rjP3aBtrVmtzrmLPhwAOAOThG8kAbBHe/MPWXw8vBi9wxxS70upNACE0AwcPP1Mwec+3P7z5EmETlg+8TKi9qbwHwK3vxm42WiRrLQorHCwT7ejL5pgf2KagkgwqRJjE+EZO3cN+a14kd5QN0OPS6eoA79WWte449OFElN3op69n3R8wrwIlnW/QH83va0ArvlgI7bQ4+IRIzCLAKf2f3cQEaLUURYprxQFR7pnHNXvrxnXEVmhqGed2zdyZt6/oIEjobw95LOkcXdrWjdfjfsfeXEPDKA2VBx1ilbt9GJ4NjoY89Rl0luUuVyAMlqFA4Y9U99ObiCUHAO8nqnU6s9vOIskDBEAJNNkz82Wg81aJhwhKYBt+JDQTcfdOfoGpGfvwRr8a7eHi7owYt8r5g7zghK4xQkQa2blnoThDcUj7R91kfm2PiHUg3Q1c6BUvswQZxU4garc0Q90eXCuuP6dQicra0fcZNogFvbyh6pAUR7fd31YoEOv0k="
 
