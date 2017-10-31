@@ -1,7 +1,7 @@
 {% set version = "4.0.0" %}
 
 {% set clang_variant = os.environ.get('CLANG_VARIANT', 'flang') %}
-{% set flang_clang_commit = "629143d173401226e571fed2525a69ff37a5497c" %}
+{% set flang_clang_commit = "2b0d6a54267f918d76b6f369b730794351b7d108" %}
 {% set build_number = "git_" + flang_clang_commit[:7] + "_0" %}
 
 package:
