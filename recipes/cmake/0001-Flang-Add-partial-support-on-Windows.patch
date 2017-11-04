@@ -1,0 +1,25 @@
+From b2c6c3574e29d5076af43b4fe5a0220748a8d6ed Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Mon, 23 Oct 2017 19:36:23 -0400
+Subject: [PATCH 06/35] Flang: Add partial support on Windows
+
+Add minimal changes needed to help Flang itself build on Windows using
+CMake.  Additional work will be required for full support.
+
+Issue: #17384
+---
+ share/cmake-3.10/Modules/Platform/Windows-Flang-Fortran.cmake | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 share/cmake-3.10/Modules/Platform/Windows-Flang-Fortran.cmake
+
+diff --git a/share/cmake-3.10/Modules/Platform/Windows-Flang-Fortran.cmake b/share/cmake-3.10/Modules/Platform/Windows-Flang-Fortran.cmake
+new file mode 100644
+index 0000000..9f20e73
+--- /dev/null
++++ b/share/cmake-3.10/Modules/Platform/Windows-Flang-Fortran.cmake
+@@ -0,0 +1,2 @@
++include(Platform/Windows-MSVC)
++__windows_compiler_msvc(Fortran)
+-- 
+2.7.4
+
