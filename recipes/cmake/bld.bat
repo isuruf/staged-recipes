@@ -17,3 +17,4 @@ if errorlevel 1 exit 1
 move share %LIBRARY_PREFIX%\
 if errorlevel 1 exit 1
 
+dir %LIBRARY_PREFIX%\share\cmake-3.10\Modules\Platform
