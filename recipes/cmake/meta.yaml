@@ -17,10 +17,6 @@ source:
   url: https://cmake.org/files/v{{ major_minor }}/cmake-{{ version }}-win64-x64.zip       # [win64]
   fn: cmake-{{ version }}-win64-x64.zip                                                   # [win64]
   sha256: 2e2c861fb64e0da240c29d683f7b5ba64f2b19ee8b368db1d7746d47240f541b                # [win64]
-  patches:
-    - 0001-Flang-Add-partial-support-on-Windows.patch
-    - 0002-Flang-Identify-as-simulating-MSVC-on-Windows.patch
-    - 0003-Flang-Add-support-for-compiling-sources-on-Windows.patch
 
 build:
   number: 0
