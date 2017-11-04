@@ -17,7 +17,3 @@ if errorlevel 1 exit 1
 move share %LIBRARY_PREFIX%\
 if errorlevel 1 exit 1
 
-echo include(Platform/Windows-MSVC) >  %LIBRARY_PREFIX%\share\cmake-3.10\Modules\Platform\Windows-Flang-Fortran.cmake
-echo __windows_compiler_msvc(Fortran) >> %LIBRARY_PREFIX%\share\cmake-3.10\Modules\Platform\Windows-Flang-Fortran.cmake
-
-
