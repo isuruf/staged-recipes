@@ -1,0 +1,60 @@
+{% set version = "1.13.3" %}
+{% set variant = "openblas" %}
+
+package:
+  name: numpy
+  version: {{ version }}
+
+source:
+  url: https://github.com/numpy/numpy/releases/download/v{{ version }}/numpy-{{ version }}.tar.gz
+  sha256: 4c6b4eef790528bebb7ec9590d74cc193868940fe68e4109a91c196df72d8094
+  patches:
+    - gh_9854.patch
+    - gh_9965.patch
+    - gh_9977.patch
+    - gh_9942.patch
+
+build:
+  number: 201
+  # We lack openblas on Windows 32-bit, and therefore can't build numpy there currently.
+  skip: true  # [win32 or (win and py2k)]
+  features:
+    - blas_{{ variant }}
+
+requirements:
+  build:
+    - toolchain
+    - cython
+    - python
+    - setuptools
+    - blas 1.1 {{ variant }}
+    - openblas 0.2.20|0.2.20.*
+  run:
+    - python
+    - blas 1.1 {{ variant }}
+    - openblas 0.2.20|0.2.20.*
+
+test:
+  requires:
+    - nose
+  commands:
+    - f2py -h
+    - conda inspect linkages -p $PREFIX numpy  # [not win]
+    - conda inspect objects -p $PREFIX numpy  # [osx]
+  imports:
+    - numpy
+    - numpy.linalg.lapack_lite
+
+about:
+  home: http://numpy.scipy.org/
+  license: BSD 3-Clause
+  license_file: LICENSE.txt
+  summary: 'Array processing for numbers, strings, records, and objects.'
+
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - msarahan
+    - pelson
+    - rgommers
+    - ocefpaf
