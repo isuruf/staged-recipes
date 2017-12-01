@@ -7,8 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 87ea1f11a0e9ec08c264dc64551d501fa307289460705f6fccd84cbfc7926d10
+  url: https://github.com/scipy/scipy/archive/master.tar.gz
 
 build:
   number: 201
@@ -24,6 +23,7 @@ requirements:
     - flang                     # [win]
     - python
     - setuptools
+    - cython
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20*
     - numpy 1.9.*               # [not win]
