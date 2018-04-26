@@ -3,12 +3,15 @@ language: generic
 
 jobs:
   include:
-    - if: (fork IN (true)) OR (type IN (pull_request))
+    - if: repo = conda-forge/staged-recipes OR type = pull_request
       os: osx
       osx_image: xcode6.4
 
-    - if: (fork IN (false)) AND (NOT (type IN (pull_request)))
+    - if: repo =~ conda-forge/staged-recipes AND type in (push, api, cron)
       os: linux
+      sudo: false
+
+    - os: linux
       sudo: false
 
 sudo: false
