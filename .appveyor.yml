@@ -47,6 +47,7 @@ install:
 build: off
 
 test_script:
+    - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
     - python .ci_support\build_all.py recipes --arch %PLATFORM%
 
     # copy any newly created conda packages into the conda_packages dir
