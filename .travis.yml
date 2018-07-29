@@ -3,11 +3,11 @@ language: generic
 
 jobs:
   include:
-    - if: (fork IN (true)) OR (type IN (pull_request))
+    - if: env("GH_TOKEN") is blank
       os: osx
       osx_image: xcode6.4
 
-    - if: (fork IN (false)) AND (NOT (type IN (pull_request)))
+    - if: env("GH_TOKEN") is present
       os: linux
       sudo: false
 
@@ -15,9 +15,9 @@ sudo: false
 
 env:
     global:
+        - secure: "qSV8HrdlsaRJvR4+j5V6ICRCkiFRG1RZ0+bgwosEAtwe7xDxPD9rXsuGdBVOGdlx3yrzNaXojrZKtWMY3oouJtosBsY+fU9Dx094znfts8Rv9SxIU7ZNoJaxU8TyvbO9hEn88a//YO+elCtUoHKAaTGjO1rTDVOXlzWODDXUtYQixiEcYvnPs7Krda8yhl3XfhRQvxKTAW3YRH+CJbowN10CgHsgf75HsTfm+vs4KbGIhBFaIBBFYvircH8YKv96CLEnoiGdvYjyC2GGFw2QKUXKlnQaE6F67pftexkp5UllQrgGQOo+I9qcrLyIj4imV1Q7iFTmFfY9Hl18RxaOem5ZUOpeS2M8Wr1l7V+9Y7yHqgJ8orgpj7NQclJg8HwFSKS3bNhk5MXGfnXYIQm1r9fcO/xWQ+eAwQu+Qi4kZaayeRQLi31Dp9Hw+Ah6jeXQ5JSfcJe96VLlzwm+oDZp3AAv6LON+x1NIjyqYpse0NhjIeX9TwOFTFS/frBc0HN/0y/lX6EK/gw30O3L+/Zm0AYdTkce2tFbp1CDGPCV4wuFUyvTP+GrI/mDBlDtm+RxClxJ94NKoGmtzK8hhY9v1qbI+ufhuUacNW9Qpkf3wEkE5lDQZiazUwT8xD7cBiY3sVT3JS5LcNbgz8u5hegOWus5IEV0W0xRKVGx63ZFUSg="
         # Add the BINSTAR_TOKEN environment variable. (This is the "CI_upload2" token in anaconda.org web UI)
         - secure: "ZwYbZztBRrZp9e0JZgLVbCmzj2sVoIwNxBDtru+PaYxXHdjXK1fTtS6KuhSL1fcoO/tGyLLJ9Ma/mEsV6mshGncajRFmikHdGhocOrBo3gWE10ypnP3t3FHcgeBeht7txUnIFFLkwWWOFzgkpb3y6wPYrraNIPdYgoOPDrSHPdJIxobN2HNUGqBIyuVfu9Q+Jt1SBxBX1q6fYW41rOEHPFTjm7E5Tu4GwTifEqD3olO8YCEel6gCI+E69dspnIo0pk8trcL4AH/YCq4nZc2FwyUJTiQC8qGoyufDo1mj4yz0V58GQtFwb5QUFdnXbN+t3wgx595KSQdymcthbpdcwRu38srMrM0F0nBVS1t+Rx7Z4Tsldt8j/vJZF2w6IYF9FZWXGTUbaUzOv8mpR0/RV6bKulCEW5LSC3eTTJPRG8kF1JPcommwBjNM+Spf5fXv5TIdSsx2Xs42BSKyc285Sum2Vb39Kxfg6NJZ1diPSMp4hlGw72IHFa/z6L6cwfjmbz6yLBFbvkMZUtoGsDlF9Wkuej99yIf+eCzDJBzXk48hYmEiX8QGu9GhwrNnj7NLvuPVEEpDbmbxtjaXoh4YclBWeVQet6xpvXk3mGbXVf+cwn8dCyCy6BHkTaGqa2O+EJgwv1QiR34GQLFeBuoXpeAOGazwWC3xt91X0JcCKbg="
-
         # Add the GH_TOKEN environment variable. (This is the "staged-recipes" token for the conda-forge-bot user.)
         - secure: "WcqfOcA4C+Au2D4KpzPiBaYHkO79FXccHMyu4msrCQaJbXUe26CbDGqvkTAJ2frf622VM6F/yEn3xUbGkiuoeXYsUaznBSXDoUe/FUAXF1L7dzcU/kLtujklizhlgKN2bVmKdDnZ5jpNcqKO1kq8qf5dRiscqaRH+PTWjziCYFYdh6+Ho/3n+kVAHA9aWI0VdqokkSiDuDzWxDUCtHnlPAO1fysYojelBZDbBYxge1dM8ymiF8A2Ae/LOjUpMYc+NCZMLmWgzHjiret9YOP4JoOY5bH+XeNNt81ab8CGmDEY52I4b2SqhydC7DVXAsdyeVKtSRb5snFmzBzu7FQh+IeVwLIGbu9sPxbUineINZelXqEQzbWMregUkLYfLnWtP9qbIzuQtL2TAS96fwePUQX4E5MTsJgnVYn4pBBOI6aZukOE7qq8r1bkGFpiuiMxyL37zWFrzK1uR1AZcg/cJkNXy3qQgyS06PVz889bMAHk+0uExrIzWteM8KNARco0bwvoZfENRxW2C46+mHinAXbhWOGbvKLKWvD/fvVUiGS/lvHRv2+yXt7DjnTXFQiHnHs+yHYU5CmxcRv0xNS70sWGGGT/+L9RBOeu1S/PQ+YaIk/PYKw34e/ztpLUiJQHIQhAlmtLNMb/lXDDaW+GsxIp1opbDSkM+sT2CBQjfyk="
 
