@@ -60,7 +60,7 @@ index 6a1f641..dd7e1d2 100644
 -                             include_dirs=['planarity/src/'],
 +                             include_dirs=[os.path.join(os.getenv("LIBRARY_PREFIX", os.getenv("CONDA_PREFIX", "/usr")), "include")],
 +                             library_dirs=[os.path.join(os.getenv("LIBRARY_PREFIX", os.getenv("CONDA_PREFIX", "/usr")), "lib")],
-+                             libraries=['planarity'],
++                             libraries=['planarity2' if os.name=='nt' else 'planarity'],
                               )],
      version          = '0.4.1',
      url = 'https://github.com/hagberg/planarity/',
