@@ -1,0 +1,32 @@
+{% set version = "10.1.1" %}
+
+package:
+  name: msmpi
+  version: {{ version }}
+
+source:
+  url: https://github.com/Microsoft/Microsoft-MPI/archive/v{{ version }}.tar.gz
+
+build:
+  number: 0
+  skip: True  # [not win or (vc<14)]
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+
+about:
+  home: https://github.com/Microsoft/Microsoft-MPI
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: Microsoft MPI
+  description: |
+    Microsoft MPI (MS-MPI) is a Microsoft implementation of the
+    Message Passing Interface standard for developing and running
+    parallel applications on the Windows platform.
+
+extra:
+  recipe-maintainers:
+    - isuruf
