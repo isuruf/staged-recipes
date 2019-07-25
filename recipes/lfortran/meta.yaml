@@ -1,0 +1,56 @@
+{% set name = "lfortran" %}
+{% set version = "0.1.14" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://lfortran.github.io/tarballs/release/{{ name }}-{{ version }}.tar.gz
+  sha256: 8f981b485dcd87aefa64c2f3dbd4d13ab5fc47fefb39b8e443a942f71424f634
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+  skip: True  # [py<35]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - python
+    - setuptools
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - llvmlite
+    - antlr-python-runtime
+
+test:
+  imports:
+    - lfortran
+  requires:
+    - pytest
+  commands:
+    - pytest --pyargs liblfort
+    - lfort --help
+
+about:
+  home: https://lfortran.org
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'Modern interactive LLVM-based Fortran compiler'
+  description: |
+    LFortran is a modern open-source (BSD licensed) interactive Fortran
+    compiler built on top of LLVM. It can execute user's code interactively to
+    allow exploratory work (much like Python, MATLAB or Julia) as well as
+    compile to binaries with the goal to run user’s code on modern
+    architectures such as multi-core CPUs and GPUs.
+  doc_url: https://docs.lfortran.org/
+  dev_url: https://gitlab.com/lfortran/lfortran
+
+extra:
+  recipe-maintainers:
+    - certik
