@@ -37,7 +37,7 @@ test:
   requires:
     - pytest
   commands:
-    - pytest --pyargs liblfort
+    - pytest --pyargs lfortran
     - lfort --help
 
 about:
