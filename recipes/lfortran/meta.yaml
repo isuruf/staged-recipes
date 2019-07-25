@@ -19,6 +19,9 @@ requirements:
     - {{ compiler('c') }}
     - python
     - setuptools
+    - scikit-build
+    - cmake
+    - ninja
   host:
     - python
     - pip
