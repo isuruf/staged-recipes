@@ -17,14 +17,13 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - python
     - cmake
-    - ninja
   host:
     - python
     - pip
     - scikit-build
     - setuptools
+    - ninja
   run:
     - python
     - llvmlite
