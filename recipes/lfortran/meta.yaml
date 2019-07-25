@@ -41,8 +41,8 @@ test:
 
 about:
   home: https://lfortran.org
-  license: MIT
-  license_family: MIT
+  license: BSD-3
+  license_family: BSD
   license_file: LICENSE
   summary: 'Modern interactive LLVM-based Fortran compiler'
   description: |
