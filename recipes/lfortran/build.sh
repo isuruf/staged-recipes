@@ -4,7 +4,7 @@ set -ex
 
 printenv
 
-if [[ MACOSX_DEPLOYMENT_TARGET != "" ]]; then
+if [[ ${MACOSX_DEPLOYMENT_TARGET} != "" ]]; then
     # macOS
     python -m pip install . -vv \
       --install-option="bdist_wheel" \
