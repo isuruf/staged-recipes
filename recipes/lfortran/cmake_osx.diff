@@ -1,0 +1,30 @@
+diff --git a/setup.py b/setup.py
+index ad5198a..db21204 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,5 +1,6 @@
+ import setuptools
+ import skbuild
++import os
+ 
+ with open("README.md", "r") as fh:
+     long_description = fh.read()
+@@ -7,6 +8,10 @@ with open("README.md", "r") as fh:
+ with open("version", "r") as fh:
+     version = fh.read().strip()
+ 
++cmake_args = []
++if os.getenv("MACOSX_DEPLOYMENT_TARGET"):
++    cmake_args.append("-DCMAKE_OSX_DEPLOYMENT_TARGET={}".format(os.getenv("MACOSX_DEPLOYMENT_TARGET")))
++
+ skbuild.setup(
+     name="lfortran",
+     version=version,
+@@ -22,6 +27,7 @@ skbuild.setup(
+         ('share/lfortran/nb', ['share/lfortran/nb/Demo.ipynb']),
+         ],
+     scripts=['lfort'],
++    cmake_args = cmake_args,
+     classifiers=[
+         "Programming Language :: Python :: 3",
+         "License :: OSI Approved :: MIT License",
