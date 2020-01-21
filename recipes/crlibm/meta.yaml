@@ -14,12 +14,12 @@ source:
 
 build:
   number: 0
-  skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - automake
+    - automake  # [unix]
+    - autotools_clang_conda  # [win]
 
 test:
   commands:
