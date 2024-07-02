@@ -1,0 +1,11 @@
+--- ./UnitTest++/src/tests/TestTestMacros.cpp.bak	2024-07-02 16:23:31.961939282 -0500
++++ ./UnitTest++/src/tests/TestTestMacros.cpp	2024-07-02 16:23:57.874638044 -0500
+@@ -106,7 +106,7 @@
+ 
+ struct FixtureCtorThrows
+ {
+-	FixtureCtorThrows()	{ throw "exception"; }
++	FixtureCtorThrows() noexcept(false)	{ throw "exception"; }
+ };
+ 
+ TestList throwingFixtureTestList1;
