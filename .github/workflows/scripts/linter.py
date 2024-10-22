@@ -162,12 +162,26 @@ def _lint_recipes(gh, pr):
             # Check if all maintainers have either commented or are the PR author
             non_participating_maintainers = set()
             for maintainer in maintainers:
-                if (
-                    maintainer not in commenters 
-                    and maintainer != pr_author
-                    and maintainer not in NOCOMMENT_REQ_TEAMS
-                ):
-                    non_participating_maintainers.add(maintainer)
+                if "/" in maintainer:
+                    if maintainer in NOCOMMENT_REQ_TEAMS:
+                        continue
+                    team_org, team_name = maintainer.split("/")
+                    if team_org == "conda-forge":
+                        team_maintainers = list(
+                            gh.get_organization(team_org)
+                            .get_team_by_slug(team_name)
+                            .get_members()
+                        )
+                        if any(
+                            team_maintainer in commenters
+                            or team_maintainer == pr_author
+                            for team_maintainer in team_maintainers
+                        ):
+                            continue
+                elif maintainer in commenters or maintainer == pr_author:
+                    continue
+
+                non_participating_maintainers.add(maintainer)
 
             # Add a lint message if there are any non-participating maintainers
             if non_participating_maintainers:
